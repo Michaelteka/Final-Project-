@@ -18,7 +18,7 @@ def play_game():
     print("Welcome to the Word Guessing Game!")
     print("Guess the word, you have 10 attempts.")
 
-    while attempts > 0:
+    while True:  # "Switch"-type loop, will exit on specific conditions
         print(display(word, guessed_letters))
         guess = input("Enter a letter: ").lower()
         
@@ -48,6 +48,12 @@ def play_game():
         # Check if out of attempts
         if attempts == 0:
             print(f"Game over! The correct word was: {word}")
+            break
+        
+        # Using a for loop to display guessed letters and their counts
+        print("Guessed letters so far:")
+        for letter, count in guessed_letters.items():
+            print(f"Letter: {letter}, Count: {count}")
 
 if __name__ == '__main__':
     play_game()
